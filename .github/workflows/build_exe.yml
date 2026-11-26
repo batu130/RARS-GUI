@@ -23,15 +23,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build single-file Windows EXE
-        run: |
-          pyinstaller --noconfirm --onefile --windowed --name "RARS_Studio" ^
-            --hidden-import=openpyxl ^
-            --hidden-import=xlrd ^
-            --hidden-import=matplotlib.backends.backend_tkagg ^
-            --hidden-import=scipy.special._cdflib ^
-            --hidden-import=sklearn.utils._typedefs ^
-            --hidden-import=sklearn.neighbors._partition_nodes ^
-            rars_gui.py
+        shell: cmd
+        run: pyinstaller --noconfirm --onefile --windowed --name "RARS_Studio" --hidden-import=openpyxl --hidden-import=xlrd --hidden-import=matplotlib.backends.backend_tkagg --hidden-import=scipy.io.matlab --hidden-import=scipy.special._cdflib --hidden-import=sklearn.utils._typedefs --hidden-import=sklearn.neighbors._partition_nodes rars_gui.py
 
       - name: Upload RARS_Studio.exe
         uses: actions/upload-artifact@v4
