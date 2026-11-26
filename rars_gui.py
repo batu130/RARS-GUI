@@ -798,7 +798,7 @@ class RARSStudioApp(tk.Tk):
         # Log Box
         f_log = ttk.LabelFrame(left, text="Execution Log", padding=6)
         f_log.pack(fill="both", expand=True)
-        self.txt_log = tk.Text(f_log, height=8, font=("Consolas", 8.5), state="disabled", wrap="word")
+        self.txt_log = tk.Text(f_log, height=8, font=("Consolas", 9), state="disabled", wrap="word")
         self.txt_log.pack(fill="both", expand=True)
 
         # Right side: Metrics Table (top) + Plot Viewer (bottom)
